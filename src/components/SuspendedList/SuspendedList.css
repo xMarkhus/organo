@@ -1,0 +1,19 @@
+.times__options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.times__options label {
+    font-size: 20px;
+}
+
+.times__options select {
+    background-color: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    padding: 24px;
+    box-sizing: border-box;
+}
