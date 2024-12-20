@@ -7,9 +7,14 @@ const TextField = (props) => {
     }
 
     return (
-        <div className="field__writing">
+        <div className={`field__writing field__${props.type}`}>
             <label>{props.label}</label>
-            <input value={props.value} onChange={whenTyping} required={props.required} placeholder={props.placeholder} />
+            <input
+                type={props.type}
+                value={props.value}
+                onChange={whenTyping}
+                required={props.required}
+                placeholder={props.placeholder} />
         </div>
     )
 };

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {v4 as uuidv4} from "uuid"
 import Button from "../Button"
 import SuspendedList from "../SuspendedList"
 import TextField from "../TextField"
@@ -10,10 +11,14 @@ const Form = (props) => {
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
     const [team, setTeam] = useState('')
+    const [teamName, setTeamName] = useState('')
+    const [teamColor, setTeamColor] = useState('')
 
     const whenSave = (event) => {
         event.preventDefault()
         props.whenCollaboratorRegistered({
+            id: uuidv4(),
+            favorite: false,
             name,
             role,
             image,
@@ -59,6 +64,32 @@ const Form = (props) => {
                 />
                 <Button>
                     Criar Card
+                </Button>
+            </form>
+            <form className="form" onSubmit={(event) => {
+                event.preventDefault()
+                props.registerTeam({ name: teamName, color: teamColor })
+                setTeamName('')
+                setTeamColor('')
+            }}>
+                <h2>Preencha os dados para criar um novo time.</h2>
+                <TextField 
+                    required
+                    label="Nome"
+                    placeholder="Digite o nome do time"
+                    value={teamName}
+                    whenChanging={value => setTeamName(value)}
+                />
+                <TextField
+                    required
+                    type="color"
+                    label="Cor"
+                    placeholder="Digite a cor do time"
+                    value={teamColor}
+                    whenChanging={value => setTeamColor(value)}
+                />
+                <Button>
+                    Criar novo time
                 </Button>
             </form>
         </section>

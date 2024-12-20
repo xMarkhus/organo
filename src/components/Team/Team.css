@@ -1,6 +1,7 @@
 .team__container {
     text-align: center;
     padding: 32px;
+    position: relative;
 }
 
 .team__container h3 {
@@ -16,4 +17,10 @@
     margin-top: 32px;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+.team__container .input__color {
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }
